@@ -1,0 +1,47 @@
+make a docker.compose file make the nesseary changes build the container and keep it runing 
+
+prisma setup command 
+npm init -y
+npm install prisma typescript ts-node @types/node --save-dev
+
+then 
+npx tsc --init
+
+
+now after making conection string of prisma for postgress
+
+set the schema in schema.prisma file 
+
+now open terminal go in the container which is runing 
+by using docker comands like
+docker ps 
+docker exce -it ( container id)  bash ---> to run it in background
+ 
+su postgres
+psql
+\l  (to list databases)
+\c threads (databases name)  to get conected to threads data base
+\d (check relations)
+\d relation_name (to see attributes of user)
+\x for better view
+now we have to set schema of prisma which we have defined . into our postgres data base which is runing on 
+container so we have to migrate
+
+npx prisma migrate dev --name (enter your name ex-migrate)
+**(you have to run this command it you make change in prisma file)
+after this your prisma databases will be copyed to postgres container.
+
+
+Create user :=
+CREATE USER miriam WITH PASSWORD 'jw8s0F4' VALID UNTIL '2005-01-01';
+
+
+
+
+
+
+
+
+
+
+
